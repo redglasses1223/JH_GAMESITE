@@ -1,0 +1,225 @@
+.collection {
+  padding-top: 10px;
+}
+
+.collection-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.genre-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.genre-list .tag {
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    transform 0.25s;
+}
+
+.genre-list .tag:hover,
+.genre-list .tag.active {
+  background: rgba(57, 139, 255, 0.2);
+  border-color: rgba(95, 180, 255, 0.55);
+  color: #eaf6ff;
+  transform: translateY(-2px);
+}
+
+.sort-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 42px 26px;
+}
+
+.game-card {
+  min-width: 0;
+}
+
+.case {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 235px;
+  aspect-ratio: 0.7;
+  margin: auto;
+  padding: 0 8px 0 14px;
+  border-radius: 5px 10px 10px 5px;
+  background: linear-gradient(
+    90deg,
+    #06101c,
+    #d4eaff 5%,
+    #29496f 8%,
+    #10213a 14%,
+    #091525 100%
+  );
+  box-shadow:
+    9px 16px 25px rgba(0, 0, 0, 0.48),
+    inset 2px 0 3px rgba(255, 255, 255, 0.38);
+  transform: perspective(900px) rotateY(-8deg) rotateZ(-1deg);
+  transform-style: preserve-3d;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s,
+    filter 0.45s;
+}
+
+.case:before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: linear-gradient(90deg, #d5e9fb, #24466d 40%, #081426);
+  border-radius: 4px 0 0 4px;
+}
+
+.case img {
+  position: absolute;
+  inset: 0 8px 0 14px;
+  width: calc(100% - 22px);
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px 7px 7px 2px;
+}
+
+.case-top {
+  position: absolute;
+  z-index: 4;
+  left: 14px;
+  right: 8px;
+  top: 0;
+  height: 38px;
+  padding: 12px 10px;
+  background: linear-gradient(90deg, #d8edff, #398bff 35%, #174e9a);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  box-shadow: 0 3px 10px #0008;
+}
+
+.case-top b {
+  float: right;
+}
+
+.case-bottom {
+  position: absolute;
+  z-index: 4;
+  left: 14px;
+  right: 8px;
+  bottom: 0;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  padding: 9px 11px;
+  background: linear-gradient(0deg, rgba(2, 7, 15, 0.98), rgba(2, 7, 15, 0.72));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.case-spine {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: #e4f3ff;
+  background: linear-gradient(90deg, #07101d, #34567f);
+}
+
+.case-gloss {
+  position: absolute;
+  z-index: 6;
+  inset: 0 8px 0 14px;
+  border: 1px solid rgba(224, 243, 255, 0.48);
+  border-radius: 2px 7px 7px 2px;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.26),
+    transparent 19%,
+    transparent 65%,
+    rgba(162, 218, 255, 0.12)
+  );
+  pointer-events: none;
+}
+
+.game-card:hover .case {
+  transform: perspective(900px) translateY(-13px) rotateY(-14deg) rotateZ(-2deg)
+    scale(1.045);
+  box-shadow:
+    13px 28px 40px rgba(0, 0, 0, 0.6),
+    0 0 32px rgba(57, 139, 255, 0.32);
+  filter: brightness(1.13);
+}
+
+.game-meta {
+  max-width: 235px;
+  margin: 16px auto 0;
+}
+
+.game-meta strong,
+.game-meta small {
+  display: block;
+}
+
+.game-meta small {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.collection-note {
+  margin-top: 42px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .game-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .game-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 14px;
+  }
+
+  .case {
+    max-width: 190px;
+  }
+
+  .collection-tools {
+    align-items: flex-start;
+  }
+
+  .sort-label {
+    width: 100%;
+  }
+}
