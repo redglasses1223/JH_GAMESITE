@@ -40,12 +40,25 @@
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 42px 26px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 540px;
+  margin: 0 auto;
+  gap: 42px 16px;
 }
 
 .game-card {
+  position: relative;
   min-width: 0;
+}
+
+.game-card:nth-child(4n + 1),
+.game-card:nth-child(4n + 2) {
+  left: -48px;
+}
+
+.game-card:nth-child(4n + 3),
+.game-card:nth-child(4n + 4) {
+  left: 48px;
 }
 
 .case {
@@ -199,16 +212,20 @@
   font-size: 12px;
 }
 
-@media (max-width: 900px) {
-  .game-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 600px) {
   .game-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px 14px;
+  }
+
+  .game-card:nth-child(4n + 1),
+  .game-card:nth-child(4n + 2) {
+    left: -24px;
+  }
+
+  .game-card:nth-child(4n + 3),
+  .game-card:nth-child(4n + 4) {
+    left: 24px;
   }
 
   .case {

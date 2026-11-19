@@ -8,6 +8,10 @@
       content="새로운 인디게임을 발견하는 큐레이션 플랫폼 INDIE DISCOVERY"
     />
     <title>홈 | INDIE DISCOVERY</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/home.css" />
   </head>
@@ -65,54 +69,134 @@
           </div>
           <a class="text-link" href="menu.html">전체 게임 보기 →</a>
         </div>
-        <div class="game-grid home-grid">
-          <a class="game-card" href="menu.html"
-            ><span class="case"
-              ><span class="case-top">INDIE ORIGINALS</span
-              ><img
-                src="images/game-cover-01.png"
-                alt="NEON VEIL 게임 패키지 커버"
-              /><span class="case-bottom">P E Z</span
-              ><span class="case-spine">INDIE</span></span
-            ><span class="game-meta"
-              ><strong>P E Z</strong><small>Action / Sci-fi</small></span
-            ></a
-          ><a class="game-card" href="menu.html"
-            ><span class="case"
-              ><span class="case-top">INDIE ORIGINALS</span
-              ><img
-                src="images/game-cover-02.jpg"
-                alt="MOSSBOUND 게임 패키지 커버"
-              /><span class="case-bottom">DEAD CELL</span
-              ><span class="case-spine">INDIE</span></span
-            ><span class="game-meta"
-              ><strong>DEAD CELL</strong
-              ><small>Adventure / Loglike</small></span
-            ></a
-          ><a class="game-card" href="menu.html"
-            ><span class="case"
-              ><span class="case-top">INDIE ORIGINALS</span
-              ><img
-                src="images/game-cover-03.jpg"
-                alt="VOID SIGNAL 게임 패키지 커버"
-              /><span class="case-bottom">TITAN SOULS</span
-              ><span class="case-spine">INDIE</span></span
-            ><span class="game-meta"
-              ><strong>TITAN SOULS</strong><small>Horror / Mystery</small></span
-            ></a
-          ><a class="game-card" href="menu.html"
-            ><span class="case"
-              ><span class="case-top">INDIE ORIGINALS</span
-              ><img
-                src="images/game-cover-04.jpg"
-                alt="AFTERGLOW 게임 패키지 커버"
-              /><span class="case-bottom">SLAY THE SPIRE</span
-              ><span class="case-spine">INDIE</span></span
-            ><span class="game-meta"
-              ><strong>SLAY THE SPIRE</strong
-              ><small>RPG / Narrative</small></span
-            ></a
-          >
+        <div
+          class="swiper home-game-swiper"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="이번 주의 발견 게임"
+        >
+          <div class="swiper-wrapper">
+            <a class="game-card swiper-slide" href="menu.html">
+              <span class="case">
+                <span class="case-top">INDIE ORIGINALS</span>
+                <img
+                  src="images/game-cover-01.png"
+                  alt="NEON VEIL 게임 패키지 커버"
+                />
+                <span class="case-bottom">P E Z</span>
+                <span class="case-spine">INDIE</span>
+              </span>
+              <span class="game-meta">
+                <strong>P E Z</strong>
+                <small>Action / Sci-fi</small>
+              </span>
+            </a>
+            <a class="game-card swiper-slide" href="menu.html">
+              <span class="case">
+                <span class="case-top">INDIE ORIGINALS</span>
+                <img
+                  src="images/game-cover-02.jpg"
+                  alt="MOSSBOUND 게임 패키지 커버"
+                />
+                <span class="case-bottom">DEAD CELL</span>
+                <span class="case-spine">INDIE</span>
+              </span>
+              <span class="game-meta">
+                <strong>DEAD CELL</strong>
+                <small>Adventure / Loglike</small>
+              </span>
+            </a>
+            <a class="game-card swiper-slide" href="menu.html">
+              <span class="case">
+                <span class="case-top">INDIE ORIGINALS</span>
+                <img
+                  src="images/game-cover-03.jpg"
+                  alt="VOID SIGNAL 게임 패키지 커버"
+                />
+                <span class="case-bottom">TITAN SOULS</span>
+                <span class="case-spine">INDIE</span>
+              </span>
+              <span class="game-meta">
+                <strong>TITAN SOULS</strong>
+                <small>Horror / Mystery</small>
+              </span>
+            </a>
+            <a class="game-card swiper-slide" href="menu.html">
+              <span class="case">
+                <span class="case-top">INDIE ORIGINALS</span>
+                <img
+                  src="images/game-cover-04.jpg"
+                  alt="AFTERGLOW 게임 패키지 커버"
+                />
+                <span class="case-bottom">SLAY THE SPIRE</span>
+                <span class="case-spine">INDIE</span>
+              </span>
+              <span class="game-meta">
+                <strong>SLAY THE SPIRE</strong>
+                <small>RPG / Narrative</small>
+              </span>
+            </a>
+            <a class="game-card swiper-slide" href="menu.html">
+              <span class="case">
+                <span class="case-top">INDIE ORIGINALS</span>
+                <img
+                  src="images/game-cover-05.jpg"
+                  alt="CHROME RIFT 게임 패키지 커버"
+                />
+                <span class="case-bottom">CHROME RIFT</span>
+                <span class="case-spine">INDIE</span>
+              </span>
+              <span class="game-meta">
+                <strong>CHROME RIFT</strong>
+                <small>Action / Platformer</small>
+              </span>
+            </a>
+            <a class="game-card swiper-slide" href="menu.html">
+              <span class="case">
+                <span class="case-top">INDIE ORIGINALS</span>
+                <img
+                  src="images/game-cover-06.jpg"
+                  alt="TINY TITANS 게임 패키지 커버"
+                />
+                <span class="case-bottom">TINY TITANS</span>
+                <span class="case-spine">INDIE</span>
+              </span>
+              <span class="game-meta">
+                <strong>TINY TITANS</strong>
+                <small>Strategy / Casual</small>
+              </span>
+            </a>
+            <a class="game-card swiper-slide" href="menu.html">
+              <span class="case">
+                <span class="case-top">INDIE ORIGINALS</span>
+                <img
+                  src="images/game-cover-07.jpg"
+                  alt="DEEP CURRENT 게임 패키지 커버"
+                />
+                <span class="case-bottom">DEEP CURRENT</span>
+                <span class="case-spine">INDIE</span>
+              </span>
+              <span class="game-meta">
+                <strong>DEEP CURRENT</strong>
+                <small>Exploration / Indie</small>
+              </span>
+            </a>
+            <a class="game-card swiper-slide" href="menu.html">
+              <span class="case">
+                <span class="case-top">INDIE ORIGINALS</span>
+                <img
+                  src="images/game-cover-08.jpg"
+                  alt="PAPER ORBIT 게임 패키지 커버"
+                />
+                <span class="case-bottom">PAPER ORBIT</span>
+                <span class="case-spine">INDIE</span>
+              </span>
+              <span class="game-meta">
+                <strong>PAPER ORBIT</strong>
+                <small>Puzzle / Art</small>
+              </span>
+            </a>
+          </div>
         </div>
       </section>
       <section class="section discover-strip">
@@ -135,5 +219,41 @@
         ><span>Discover · Explore · Share</span>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
+    <script>
+      new Swiper(".home-game-swiper", {
+        slidesPerView: 1.2,
+        spaceBetween: 14,
+        speed: 650,
+        grabCursor: true,
+        watchOverflow: true,
+        keyboard: {
+          enabled: true,
+          onlyInViewport: true,
+        },
+        a11y: {
+          containerMessage: "이번 주의 발견 게임 슬라이더",
+          slideLabelMessage: "{{index}} / {{slidesLength}}",
+        },
+        breakpoints: {
+          420: {
+            slidesPerView: 1.5,
+            spaceBetween: 16,
+          },
+          600: {
+            slidesPerView: 2,
+            spaceBetween: 18,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          901: {
+            slidesPerView: 4,
+            spaceBetween: 22,
+          },
+        },
+      });
+    </script>
   </body>
 </html>

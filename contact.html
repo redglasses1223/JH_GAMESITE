@@ -49,17 +49,33 @@
           <h2>당신이 발견한<br />멋진 게임을 기다립니다.</h2>
           <p>게임 제목과 장르, 추천 이유를 알려주세요.</p>
         </div>
-        <form class="contact-form glass-panel" action="#" method="get">
-          <label for="game-title">게임 제목</label
+        <form class="contact-form glass-panel" id="contact-form">
+          <label for="sender-name">이름</label
+          ><input
+            id="sender-name"
+            name="from_name"
+            type="text"
+            autocomplete="name"
+            placeholder="이름을 입력해 주세요"
+            required
+          /><label for="sender-email">이메일</label
+          ><input
+            id="sender-email"
+            name="reply_to"
+            type="email"
+            autocomplete="email"
+            placeholder="답변받을 이메일 주소"
+            required
+          /><label for="game-title">게임 제목</label
           ><input
             id="game-title"
-            name="game-title"
+            name="game_title"
             type="text"
             placeholder="게임 이름을 입력해 주세요"
             required
           /><label for="genre">장르</label
-          ><select id="genre" name="genre">
-            <option>장르 선택</option>
+          ><select id="genre" name="genre" required>
+            <option value="" disabled selected>장르 선택</option>
             <option>액션</option>
             <option>어드벤처</option>
             <option>RPG</option>
@@ -69,7 +85,7 @@
           ><label for="game-link">게임 링크</label
           ><input
             id="game-link"
-            name="game-link"
+            name="game_link"
             type="url"
             placeholder="https://"
           /><label for="message">추천 이유 및 문의 내용</label
@@ -78,11 +94,18 @@
             name="message"
             rows="5"
             placeholder="게임의 매력이나 전달하고 싶은 내용을 적어주세요."
+            required
           ></textarea
-          ><button class="button" type="submit">추천 내용 작성 완료</button
-          ><small
-            >※ 현재는 HTML/CSS 과제용 시안입니다. 서버가 연결되지 않아 입력
-            내용이 저장·전송되지는 않습니다.</small
+          ><button class="button" type="submit">이메일로 추천 보내기</button>
+          <p
+            class="form-status"
+            id="submit-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <small
+            >작성한 내용은 이메일로 전송됩니다. 답변을 받으려면 이메일 주소를
+            정확히 입력해 주세요.</small
           >
         </form>
       </section>
@@ -93,5 +116,54 @@
         ><span>Discover · Explore · Share</span>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
+    <script>
+      emailjs.init({
+        publicKey: "Bl418MUjSAHN2raNS",
+      });
+
+      const contactForm = document.getElementById("contact-form");
+      const submitStatus = document.getElementById("submit-status");
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const submitButtonText = submitButton.textContent;
+
+      contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        submitButton.disabled = true;
+        submitButton.textContent = "전송 중...";
+        submitStatus.textContent = "";
+        submitStatus.dataset.state = "";
+
+        const formData = new FormData(contactForm);
+        const templateParams = {
+          to_email: "redglasses1223@gmail.com",
+          from_name: formData.get("from_name"),
+          reply_to: formData.get("reply_to"),
+          game_title: formData.get("game_title"),
+          genre: formData.get("genre"),
+          game_link: formData.get("game_link") || "미입력",
+          message: formData.get("message"),
+        };
+
+        try {
+          await emailjs.send(
+            "redglasses1223@gmail.com",
+            "redglasses",
+            templateParams,
+          );
+          submitStatus.textContent = "문의가 이메일로 전송되었습니다.";
+          submitStatus.dataset.state = "success";
+          contactForm.reset();
+        } catch (error) {
+          console.error("EmailJS 전송 실패:", error);
+          submitStatus.textContent =
+            "전송에 실패했습니다. EmailJS 설정을 확인한 뒤 다시 시도해 주세요.";
+          submitStatus.dataset.state = "error";
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = submitButtonText;
+        }
+      });
+    </script>
   </body>
 </html>

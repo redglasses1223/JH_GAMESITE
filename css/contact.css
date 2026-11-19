@@ -72,6 +72,26 @@
   cursor: pointer;
 }
 
+.contact-form .button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.contact-form .form-status {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.contact-form .form-status[data-state="success"] {
+  color: #8fe0b0;
+}
+
+.contact-form .form-status[data-state="error"] {
+  color: #ff9a9a;
+}
+
 .contact-form small {
   color: var(--muted);
   font-size: 11px;
